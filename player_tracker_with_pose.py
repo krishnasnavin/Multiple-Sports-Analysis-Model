@@ -215,6 +215,7 @@ def track_players_in_video(model_dir, keypoint_model_dir, video_file, device, th
                         visual_thresh=0.5,
                         returnimg=True
                     )
+
                 
                 writer.write(im_with_tracks)
                 pbar.update(1)
@@ -230,15 +231,15 @@ def track_players_in_video(model_dir, keypoint_model_dir, video_file, device, th
 def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     default_model_dir = os.path.join(script_dir, 'output_inference/ppyoloe_crn_m_300e_coco')
-    default_keypoint_model_dir = os.path.join(script_dir, 'output_inference/tinypose_256x192')
+    default_keypoint_model_dir = os.path.join(script_dir, 'output_inference/dark_hrnet_w32_256x192')
 
     parser = argparse.ArgumentParser(description='Track players in a video with pose estimation.')
     parser.add_argument('--model_dir', type=str, default=default_model_dir,
                         help='Path to the PP-YOLOE model directory.')
     parser.add_argument('--keypoint_model_dir', type=str, default=default_keypoint_model_dir,
-                        help='Path to the TinyPose model directory.')
+                        help='Path to the keypoint model directory.')
     parser.add_argument('--video_file', type=str, 
-                        default=r'E:\Prototype\Test\test_video3.mp4',
+                        default=r'E:\Prototype\Test\test_video4.mp4',
                         help='Path to the input video file.')
     parser.add_argument('--output_dir', type=str, default='output',
                         help='Directory to save the output video.')
